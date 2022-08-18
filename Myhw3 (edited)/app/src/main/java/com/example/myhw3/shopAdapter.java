@@ -7,11 +7,14 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.List;
 
@@ -39,6 +42,8 @@ public class shopAdapter extends ArrayAdapter {
         ImageView photo = view.findViewById(R.id.itemimages);
         Button del = view.findViewById(R.id.button3);
 
+
+
         prName.setText(pro.getProName());
         Pnumber.setText( String.valueOf(pro.getProPrice())+" kd");
         photo.setImageResource(pro.getProImage());
@@ -48,6 +53,11 @@ public class shopAdapter extends ArrayAdapter {
             public void onClick(View view) {
 
                 remove(pro);
+
+                Snackbar snackbar = Snackbar.make(view,"item has been deleted", Snackbar.LENGTH_LONG);
+                snackbar.show();
+
+
             }
         });
 
